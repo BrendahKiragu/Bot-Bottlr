@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Project Title: Bot Battlr
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# About Bot Battlr
 
-In the project directory, you can run:
+Welcome to **Bot Battlr**, the one and only spot in the known universe where you can custom build your own Bot Army!
 
-### `npm start`
+## Scenario
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A galactic overlord has hired you, a galactic web developer, to develop a galactic web app that will allow them to browse through a list of robots, view a robot's details, and enlist a bot into their army.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## User Features
 
-### `npm test`
+As a user, you will be able to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **View Bot Profiles**: See profiles of all bots rendered in the `BotCollection` component.
+  
+- **Enlist Bots**: Add an individual bot to your army by clicking on it. The selected bot will render in the `YourBotArmy` component. Bots can only be enlisted **once** and will **not** disappear from the `BotCollection`.
 
-### `npm run build`
+- **Release Bots**: Remove a bot from your army by clicking on it. The bot will disappear from the `YourBotArmy` component.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Discharge Bots Permanently**: Discharge a bot from service by clicking the red "x" button. This action will delete the bot from both the backend and the `YourBotArmy` on the frontend.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **View Bot Details**: Choose whether to enlist a bot into your army or just view their details. Clicking on a bot's card will display a detailed view (`BotSpecs`) for that bot, replacing the `BotCollection`. `BotSpecs` will have two buttons: one to go back to the list view and another to enlist that bot.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Sort Bots**: Sort bots by their health, damage, or armor. A new component, `SortBar`, will be created to handle this functionality.
 
-### `npm run eject`
+- **Enlist Bots to Your Army**: When you enlist a bot, it will be **removed** from the `BotCollection` and added to your `YourBotArmy`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Filter Bots by Class**: Filter bots by their class, with the ability to select multiple filters simultaneously.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Enlist Only One Bot per Class**: Only enlist **one** bot from each `bot_class`. The available classes are `["Support", "Medic", "Assault", "Defender", "Captain", "Witch"]`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## App Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The app will be structured into several key components:
 
-## Learn More
+1. **BotCollection**: Displays the list of all available bots.
+2. **YourBotArmy**: Shows the bots that have been enlisted into your army.
+3. **BotSpecs**: Displays detailed information about a selected bot.
+4. **SortBar**: Allows sorting bots by different attributes.
+5. **FilterBar**: Allows filtering bots by class.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To get started with this project:
 
-### Code Splitting
+1. Clone the repository.
+2. Install the necessary dependencies.
+3. Run the development server.
+4. Start building your bot army!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Technologies Used
 
-### Analyzing the Bundle Size
+- React.js
+- JavaScript
+- CSS
+- HTML
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contributing
 
-### Making a Progressive Web App
+Contributions are welcome! Please submit a pull request or open an issue to get started.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License.
