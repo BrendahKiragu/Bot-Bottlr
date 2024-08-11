@@ -20,10 +20,12 @@ const eraseBot = (id) => {
     })
 
     .then(res => {
-      if (!res.ok) {
-        throw new Error("Error deleting bot");
+      if (res.ok) {
+        setBots(bots.filter((bot)=> bot.id !== id)) 
+      } else{
+        return `Error deleting the bot, please try again later`
       }
-      setBots(bots.filter((bot)=> bot.id !== id))
+     
     })
 
     .catch(error => {
