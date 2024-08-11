@@ -1,3 +1,49 @@
 .App {
   text-align: center;
 }
+
+#header {
+  background-color: aquamarine;
+  margin: 10px;
+  padding: 20px;
+}
+
+.bot-collection {
+  display: grid;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid red;
+  margin: 10px 50px;
+}
+
+#bot-card{
+  border: 1px solid blue;
+  margin: 5px;
+  padding: 10px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+#bot-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: red;
+  padding: 0;
+  margin: 0;
+}
+
+#bot-list{
+  border: 1px solid black;
+}
+
