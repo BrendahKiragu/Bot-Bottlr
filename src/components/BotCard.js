@@ -8,7 +8,7 @@ function BotCard ({ id, name, health, damage, armor, bot_class, catchphrase,
   const toggleDetails = () => {
     setShowDetails(!showDetails);
   }
-
+  
 
  function handleDelete(e){
    e.preventDefault();
@@ -17,13 +17,12 @@ function BotCard ({ id, name, health, damage, armor, bot_class, catchphrase,
 
   return(
   <div id="bot-card" onClick={toggleDetails}>
-
-      <button id= "delete"
-       onClick={handleDelete}>X</button>
-      <img src={avatar_url} alt={name} />
-      
+  <img src={avatar_url} alt={name} />
       {showDetails && (
         <>
+          <button id= "delete"
+          onClick={handleDelete}>X</button>
+      
           <span style={{position: 'absolute'}}>{id}</span>
           <h2>{name}</h2>
           <p>Health: {health}</p>
