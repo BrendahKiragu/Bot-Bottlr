@@ -52,8 +52,9 @@ const botObj = bots.map((bot)=>({
 
 return(
   <div className="bot-collection" >
-    <h2>Bot Collection</h2>
+    
     <ul id='bot-list'>
+      <h2>Bot Collection</h2>
       {botObj.map((bot) => (
         <BotCard
           key={bot.id}
