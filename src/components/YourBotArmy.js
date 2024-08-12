@@ -10,11 +10,11 @@ function YourBotArmy ({bots}) {
   <div id ="your-bot-army" onClick={toggleDetails}>
     <h2>Create Your Bot Army</h2>
     {bots.map(bot => (
-         <div key={bot.id}>
+         <div className="bot-card" key={bot.id}>
           <img src={bot.avatar_url} alt={bot.name} />
           {showDetails && (
              <ul>
-               <li>
+               <li >
                   <p> id={bot.id}</p>
                   <p> Name={bot.name}</p>
                   <p> Health={bot.health}</p>
