@@ -3,7 +3,7 @@
 }
 
 #header {
-  background-color: #b7a9a9;
+  background-color: rgb(174, 189, 163);
   margin: 10px;
   padding: 20px;
 }
@@ -12,18 +12,20 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  border: 1px solid gray;
-  /* margin: 10px 50px; */
+  border: 1px solid rgb(69, 9, 9);
 }
 
+
+
 .bot-card{
-  border: 1px solid rgb(194, 189, 189);
+  border: 1px solid rgb(53, 33, 142);
   position: relative;
   border-radius: 15px;
-  margin: 5px;
+  margin: 15px;
   padding: 10px;
-  width: auto;
+  height: auto;
   cursor: pointer;
+  text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
@@ -32,40 +34,65 @@
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+
+.bot-card button {
+  background-color: hsl(200, 30%, 50%);
+  color: white;
+  border-radius: 5px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.bot-card button:hover {
+  background-color: hsl(200, 30%, 60%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 #delete {
   position: absolute;
   top: 5px;
   right: 5px;
-  background: none;
-  border: none;
+  background: red;
+  color: black;
   font-size: 20px;
   cursor: pointer;
-  color: red;
-  padding: 0;
-  margin: 0;
 }
 
 #bot-list{
   border: none;
   list-style: none;
   padding: 10px;
-  /* flex: 1; */
+  flex: 0.5;
 }
 
-#your-bot-army h2 {
-  text-align: center;
-  margin-bottom: 20px;
+#add{
+  position: absolute;
+  bottom: 8px;
+  right: 5px;
+  color: black;
+  font-size: 20px;
+  cursor: pointer; 
 }
 
+#your-bot-army {
+  /* background-color: rgb(172, 184, 151); */
+  border: 1px solid rgb(233, 216, 216);
+  border-radius: 15px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+  justify-content: center;
+ }
 
-#your-bot-army li {
-  background-color: #ab9494;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 5px;
-  width: auto;
+#your-bot-army li img {
+  width: 100%;
   height: auto;
-  box-sizing: border-box;
-  text-align: center;
+  object-fit: cover;
+}
+
+#your-bot-army li{
   list-style: none;
 }
