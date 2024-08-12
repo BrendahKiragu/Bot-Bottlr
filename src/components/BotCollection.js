@@ -4,12 +4,14 @@ import YourBotArmy from './YourBotArmy';
 
 function BotCollection() {
   const [bots, setBots] = useState([]);
+  const [yourBotArmy, setYourBotArmy] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:4000/bots')
      .then((response) => response.json())
      .then((data) => setBots(data));
   }, []);
+  
 
 // deletes a bot from UI and backend, with a delete confirmation message
 const eraseBot = (id) => {
@@ -49,10 +51,18 @@ const botObj = bots.map((bot)=>({
   updated_at: bot.updated_at
 }))
 
+// function to add a bot to yourbotarmy
+function onAddBot(selectedBot) {
+  if (yourBotArmy.find(bot => bot.id === selectedBot.id)){
+    alert("Bot already in your bot army!");
+  }else{
+    setYourBotArmy([...yourBotArmy, selectedBot]);
+    alert("Bot added to your bot army!");
+  }
+}
 
 return(
   <div className="bot-collection" >
-    
     <ul id='bot-list'>
       <h2>Bot Collection</h2>
       {botObj.map((bot) => (
@@ -69,11 +79,13 @@ return(
           created_at={bot.created_at}
           updated_at={bot.updated_at}
           onDelete={eraseBot}
+          onAddBot = {onAddBot}
         />
       ))}
     </ul>
+
     <div className="your-bot-army">
-      <YourBotArmy />
+      <YourBotArmy bots={yourBotArmy}/>
     </div>
   </div>
 
