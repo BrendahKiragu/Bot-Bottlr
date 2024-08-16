@@ -34,29 +34,30 @@ function BotCollection() {
     setYourBotArmy(updatedBotArmy);
   }
 
-  // function to add a bot to yourbotarmy
+  // function to add a bot to yourbotarmy component
   function onAddBot(selectedBot) {
     if (yourBotArmy.find((bot) => bot.id === selectedBot.id)) {
       alert("Bot already in your bot army!");
     } else {
       setYourBotArmy([...yourBotArmy, selectedBot]);
-      alert("Bot added to your bot army!");
     }
   }
 
   return (
     <div className="bot-collection">
-      <ul id="bot-list">
+      <div className="bots-list">
         <h2>Bot Collection</h2>
-        {bots.map((bot) => (
-          <BotCard
-            key={bot.id}
-            bot={bot}
-            onDelete={eraseBot}
-            onAddBot={onAddBot}
-          />
-        ))}
-      </ul>
+        <ul id="bot-list">
+          {bots.map((bot) => (
+            <BotCard
+              key={bot.id}
+              bot={bot}
+              onDelete={eraseBot}
+              onAddBot={onAddBot}
+            />
+          ))}
+        </ul>
+      </div>
 
       <div id="your-bot-army">
         <YourBotArmy

@@ -38,6 +38,7 @@ function BotCard({ bot, onDelete, onAddBot }) {
           <button id="delete" onClick={handleDelete}>
             X
           </button>
+          <button onClick={handleAddBot}>Add Bot</button>
           <span>{id}</span>
           <h2>{name}</h2>
           <p>Health: {health}</p>
@@ -49,7 +50,6 @@ function BotCard({ bot, onDelete, onAddBot }) {
           <p>Updated At: {new Date(updated_at).toLocaleDateString()}</p>
         </>
       )}
-      <button onClick={handleAddBot}>Add Bot</button>
     </div>
   );
 }

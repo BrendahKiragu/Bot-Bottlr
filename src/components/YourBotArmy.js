@@ -7,10 +7,10 @@ function YourBotArmy({ bots, onRemoveBotFromArmy }) {
   };
 
   return (
-    <div id="your-bot-army" onClick={toggleDetails}>
+    <div id="your-bot-army" >
       <h2>Create Your Bot Army</h2>
       {bots.map((bot) => (
-        <div className="bot-card" key={bot.id}>
+        <div className="bot-card" key={bot.id} onClick={toggleDetails}>
           <img src={bot.avatar_url} alt={bot.name} />
 
           {showDetails && (
