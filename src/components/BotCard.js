@@ -1,57 +1,41 @@
 import React, { useState } from "react";
 
-function BotCard({
-  id,
-  name,
-  health,
-  damage,
-  armor,
-  bot_class,
-  catchphrase,
-  avatar_url,
-  created_at,
-  updated_at,
-  onDelete,
-  onAddBot
-}) {
+function BotCard({ bot, onDelete, onAddBot }) {
   const [showDetails, setShowDetails] = useState(false);
 
   const toggleDetails = () => {
     setShowDetails(!showDetails);
   };
 
- function handleDelete(e){
-    e.stopPropagation(); 
-    if (window.confirm(`Are you sure you want to delete bot ${name}?`)) {
-      onDelete(id);
-    }
-  };
+  function handleDelete(e) {
+    e.preventDefault();
+    onDelete(bot.id);
+  }
 
-  const addBot = () => {
-    onAddBot({
-      id,
-      name,
-      health,
-      damage,
-      armor,
-      bot_class,
-      catchphrase,
-      avatar_url,
-      created_at,
-      updated_at
-    });
-  };
+  function handleAddBot(e) {
+    e.preventDefault();
+    onAddBot(bot);
+  }
+
+  const {
+    id,
+    name,
+    health,
+    damage,
+    armor,
+    bot_class,
+    catchphrase,
+    avatar_url,
+    created_at,
+    updated_at,
+  } = bot;
 
   return (
     <div className="bot-card" onClick={toggleDetails}>
       <img src={avatar_url} alt={name} />
       {showDetails && (
         <>
-          <button
-            id="delete"
-            onClick={handleDelete}
-            // style={{ position: 'absolute', top: '5px', right: '5px', background: 'none', border: 'none', color: 'red', cursor: 'pointer' }}
-          >
+          <button id="delete" onClick={handleDelete}>
             X
           </button>
           <span>{id}</span>
@@ -65,8 +49,7 @@ function BotCard({
           <p>Updated At: {new Date(updated_at).toLocaleDateString()}</p>
         </>
       )}
-      <button onClick={()=>addBot(id)}>
-        Add Bot</button>
+      <button onClick={handleAddBot}>Add Bot</button>
     </div>
   );
 }

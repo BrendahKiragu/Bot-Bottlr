@@ -1,95 +1,71 @@
-import React, {useState, useEffect} from 'react';
-import BotCard from './BotCard';
-import YourBotArmy from './YourBotArmy';
+import React, { useState, useEffect } from "react";
+import BotCard from "./BotCard";
+import YourBotArmy from "./YourBotArmy";
 
 function BotCollection() {
   const [bots, setBots] = useState([]);
   const [yourBotArmy, setYourBotArmy] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/bots')
-     .then((response) => response.json())
-     .then((data) => setBots(data));
+    fetch("http://localhost:4000/bots")
+      .then((response) => response.json())
+      .then((data) => setBots(data));
   }, []);
-  
 
-// deletes a bot from UI and backend, with a delete confirmation message
-const eraseBot = (id) => {
-  const isConfirmed = window.confirm(`Are you sure you want to delete bot ${id}?`);
-  if (isConfirmed) {
+  // deletes a bot from UI and backend, with a delete confirmation message
+  const eraseBot = (id) => {
     fetch(`http://localhost:4000/bots/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     })
+      .then((res) => {
+        if (res.ok) {
+          setBots(bots.filter((bot) => bot.id !== id));
+        } else {
+          return `Error deleting the bot, please try again later`;
+        }
+      })
+      .catch((error) => {
+        console.error("Delete request failed, please try again later:", error);
+      });
+  };
 
-    .then(res => {
-      if (res.ok) {
-        setBots(bots.filter((bot)=> bot.id !== id)) 
-      } else{
-        return `Error deleting the bot, please try again later`
-      }
-     
-    })
-
-    .catch(error => {
-      console.error("Delete request failed, please try again later:", error);
-    });
+  function onRemoveBotFromArmy(id) {
+    const updatedBotArmy = yourBotArmy.filter((bot) => bot.id !== id);
+    setYourBotArmy(updatedBotArmy);
   }
-};
 
-//Details to be dispalyed from each bot on the BotCard component
-const botObj = bots.map((bot)=>({
-  id: bot.id,
-  key: bot.id,
-  name: bot.name,
-  health: bot.health,
-  damage: bot.damage,
-  armor: bot.armor,
-  bot_class: bot.bot_class,
-  catchphrase: bot.catchphrase,
-  avatar_url: bot.avatar_url,
-  created_at: bot.created_at,
-  updated_at: bot.updated_at
-}))
-
-// function to add a bot to yourbotarmy
-function onAddBot(selectedBot) {
-  if (yourBotArmy.find(bot => bot.id === selectedBot.id)){
-    alert("Bot already in your bot army!");
-  }else{
-    setYourBotArmy([...yourBotArmy, selectedBot]);
-    alert("Bot added to your bot army!");
+  // function to add a bot to yourbotarmy
+  function onAddBot(selectedBot) {
+    if (yourBotArmy.find((bot) => bot.id === selectedBot.id)) {
+      alert("Bot already in your bot army!");
+    } else {
+      setYourBotArmy([...yourBotArmy, selectedBot]);
+      alert("Bot added to your bot army!");
+    }
   }
-}
 
-return(
-  <div className="bot-collection" >
-    <ul id='bot-list'>
-      <h2>Bot Collection</h2>
-      {botObj.map((bot) => (
-        <BotCard
-          key={bot.id}
-          id={bot.id}
-          name={bot.name}
-          health={bot.health}
-          damage={bot.damage}
-          armor={bot.armor}
-           bot_class={bot.bot_class}
-          catchphrase={bot.catchphrase}
-          avatar_url={bot.avatar_url}
-          created_at={bot.created_at}
-          updated_at={bot.updated_at}
-          onDelete={eraseBot}
-          onAddBot = {onAddBot}
+  return (
+    <div className="bot-collection">
+      <ul id="bot-list">
+        <h2>Bot Collection</h2>
+        {bots.map((bot) => (
+          <BotCard
+            key={bot.id}
+            bot={bot}
+            onDelete={eraseBot}
+            onAddBot={onAddBot}
+          />
+        ))}
+      </ul>
+
+      <div id="your-bot-army">
+        <YourBotArmy
+          bots={yourBotArmy}
+          onRemoveBotFromArmy={onRemoveBotFromArmy}
         />
-      ))}
-    </ul>
-
-    <div className="your-bot-army">
-      <YourBotArmy bots={yourBotArmy}/>
+      </div>
     </div>
-  </div>
-
- );
+  );
 }
 
 export default BotCollection;
