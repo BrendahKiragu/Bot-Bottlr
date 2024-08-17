@@ -9,9 +9,10 @@ import "react-toastify/dist/ReactToastify.css";
 function BotCollection() {
   const [bots, setBots] = useState([]);
   const [yourBotArmy, setYourBotArmy] = useState([]);
+  const [expandedBotId, setExpandedBotId] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:4000/bots")
+    fetch("http://localhost:8001/bots")
       .then((response) => response.json())
       .then((data) => setBots(data));
   }, []);
@@ -47,7 +48,7 @@ function BotCollection() {
   };
 
   function deleteBot(id) {
-    fetch(`http://localhost:4000/bots/${id}`, { method: "DELETE" }).then(() => {
+    fetch(`http://localhost:8001/bots/${id}`, { method: "DELETE" }).then(() => {
       const updatedBotCollection = bots.filter((bot) => bot.id !== id);
       setBots(updatedBotCollection);
       toast.success("Bot deleted successfully!", { autoClose: 2000 });
@@ -69,6 +70,10 @@ function BotCollection() {
     }
   }
 
+  const toggleExpandBot = (id) => {
+    setExpandedBotId(id === expandedBotId ? null : id);
+  };
+
   return (
     <div className="bot-collection">
       <div className="bots-list">
@@ -80,6 +85,8 @@ function BotCollection() {
               bot={bot}
               onDelete={() => eraseBot(bot.id)}
               onAddBot={onAddBot}
+              isExpanded={bot.id === expandedBotId}
+              onToggleExpand={toggleExpandBot}
             />
           ))}
         </ul>

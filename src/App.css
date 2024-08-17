@@ -1,6 +1,6 @@
 .App {
-  font-family: "Arial", sans-serif;
-  background-color: hsl(200, 20%, 90%);
+  font-family: Arial, sans-serif;
+  background-color: rgb(165, 165, 89);
   color: #333;
   margin: 0;
   padding: 0;
@@ -8,29 +8,47 @@
 }
 
 #header {
-  background-color: rgb(174, 189, 163);
-  margin: 10px;
+  background-color: rgb(220, 220, 180);
+  margin: 0;
   padding: 20px;
+  line-height: 2rem;
 }
 
-/* Bot Collection Container */
+#header h1 {
+  font-size: 36px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1.8rem;
+  text-transform: uppercase;
+}
+
+#header p{
+  margin-top: 0;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0.2rem;  
+}
+
 .bot-collection {
   display: flex;
   justify-content: space-between;
   padding: 20px;
   gap: 20px;
+  scroll-behavior: smooth;
 }
 
-/* Bots List Section */
-.bots-list {
-  flex: 1;
+.bots-list,
+#your-bot-army {
+  flex: 1 1 calc(25% - 10px);
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
+
 }
 
-.bots-list h2 {
+.bots-list h2,
+#your-bot-army h2 {
   margin-top: 0;
   font-size: 24px;
   color: #5f7b7b;
@@ -38,18 +56,18 @@
 }
 
 .bot-card {
-  border: 1px solid rgb(53, 33, 142);
-  border-radius: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   padding: 10px;
   cursor: pointer;
-  text-align: center;
-  max-width: 50vw;
-  max-height: auto;
-  align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s;
+}
+
+.catch-phrase {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .bot-card img {
@@ -87,21 +105,24 @@
 }
 
 #delete {
-  position: absolute;
   top: 5px;
   right: 5px;
   background: red;
-  color: black;
-  font-size: 20px;
-  cursor: pointer;
+  position: absolute;
 }
 
-/* Bot List Items */
+#add {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 #bot-list {
   list-style: none;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 20px;
 }
 
@@ -118,27 +139,21 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-#add {
-  position: absolute;
-  bottom: 8px;
-  right: 5px;
-  color: black;
-  font-size: 20px;
-  cursor: pointer;
+.bot-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-/* Your Bot Army section */
-#your-bot-army {
-  flex: 1;
-  background-color: #eef4f4;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
+/* Media Queries */
+/* For screens larger than 767px */
+@media (min-width: 768px) {
+  .bot-cards-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
 }
 
-#your-bot-army h2 {
-  font-size: 24px;
-  color: #5f7b7b;
-  margin-bottom: 20px;
+@media (max-width: 767px) {
+  .bot-cards-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }

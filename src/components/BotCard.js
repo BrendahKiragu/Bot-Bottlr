@@ -26,14 +26,14 @@ function BotCard({ bot, onDelete, onAddBot }) {
           <button id="delete" onClick={handleDelete}>
             X
           </button>
-          <button onClick={handleAddBot}>Add Bot</button>
+          <button id="add" onClick={handleAddBot}>Add Bot</button>
 
           <h2>{bot.name}</h2>
           <p>Health: {bot.health}</p>
           <p>Damage: {bot.damage}</p>
           <p>Armor: {bot.armor}</p>
           <p>Class: {bot.bot_class}</p>
-          <p>Catchphrase: {bot.catchphrase}</p>
+          <p className="catch-phrase">Catchphrase: {bot.catchphrase}</p>
           <p>Created At: {new Date(bot.created_at).toLocaleDateString()}</p>
           <p>Updated At: {new Date(bot.updated_at).toLocaleDateString()}</p>
         </>
