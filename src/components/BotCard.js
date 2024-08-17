@@ -17,37 +17,25 @@ function BotCard({ bot, onDelete, onAddBot }) {
     onAddBot(bot);
   }
 
-  const {
-    id,
-    name,
-    health,
-    damage,
-    armor,
-    bot_class,
-    catchphrase,
-    avatar_url,
-    created_at,
-    updated_at,
-  } = bot;
-
   return (
     <div className="bot-card" onClick={toggleDetails}>
-      <img src={avatar_url} alt={name} />
+      <img src={bot.avatar_url} alt={bot.name} />
+      <span>{bot.id}</span>
       {showDetails && (
         <>
           <button id="delete" onClick={handleDelete}>
             X
           </button>
           <button onClick={handleAddBot}>Add Bot</button>
-          <span>{id}</span>
-          <h2>{name}</h2>
-          <p>Health: {health}</p>
-          <p>Damage: {damage}</p>
-          <p>Armor: {armor}</p>
-          <p>Class: {bot_class}</p>
-          <p>Catchphrase: {catchphrase}</p>
-          <p>Created At: {new Date(created_at).toLocaleDateString()}</p>
-          <p>Updated At: {new Date(updated_at).toLocaleDateString()}</p>
+
+          <h2>{bot.name}</h2>
+          <p>Health: {bot.health}</p>
+          <p>Damage: {bot.damage}</p>
+          <p>Armor: {bot.armor}</p>
+          <p>Class: {bot.bot_class}</p>
+          <p>Catchphrase: {bot.catchphrase}</p>
+          <p>Created At: {new Date(bot.created_at).toLocaleDateString()}</p>
+          <p>Updated At: {new Date(bot.updated_at).toLocaleDateString()}</p>
         </>
       )}
     </div>
