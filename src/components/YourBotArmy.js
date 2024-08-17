@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+
+
+
 function YourBotArmy({ bots, onRemoveBotFromArmy }) {
   const [showDetails, setShowDetails] = useState(false);
   const toggleDetails = () => {
@@ -7,7 +10,7 @@ function YourBotArmy({ bots, onRemoveBotFromArmy }) {
   };
 
   return (
-    <div id="your-bot-army" >
+    <div id="your-bot-army">
       <h2>Create Your Bot Army</h2>
       {bots.map((bot) => (
         <div className="bot-card" key={bot.id} onClick={toggleDetails}>
