@@ -1,5 +1,10 @@
 .App {
-  text-align: center;
+  font-family: "Arial", sans-serif;
+  background-color: hsl(200, 20%, 90%);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #header {
@@ -8,28 +13,30 @@
   padding: 20px;
 }
 
+/* Bot Collection Container */
 .bot-collection {
   display: flex;
   justify-content: space-between;
-  margin: 20px;
-  padding: 10px;
-  gap: 10px;
-  border: 1px solid rgb(69, 9, 9);
-}
-
-.bots-list {
-  flex: 1; 
-  /* width: 100%; */
-}
-
-#bot-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
+  padding: 20px;
   gap: 20px;
 }
+
+/* Bots List Section */
+.bots-list {
+  flex: 1;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.bots-list h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #5f7b7b;
+  text-align: center;
+}
+
 .bot-card {
   border: 1px solid rgb(53, 33, 142);
   border-radius: 15px;
@@ -89,12 +96,26 @@
   cursor: pointer;
 }
 
+/* Bot List Items */
 #bot-list {
-  border: none;
   list-style: none;
   padding: 0;
-  flex: 1;
-  margin-right: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+#bot-list li {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#bot-list li:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 #add {
@@ -106,58 +127,18 @@
   cursor: pointer;
 }
 
+/* Your Bot Army section */
 #your-bot-army {
   flex: 1;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: #eef4f4;
   border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  max-width: 400px;
+  text-align: center;
 }
 
-#your-bot-army li img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-#your-bot-army li {
-  list-style: none;
-}
-@media (max-width: 1200px) {
-  /* Adjust layout for medium screens */
-  .bot-card {
-    padding: 10px;
-    
-  }
-  #bot-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr); 
- 
-}
-}
-
-@media (max-width: 768px) {
-
-  .bot-card {
-    padding: 25px;
-    width: 100%;
-    padding-bottom: 120%; 
-  }
-
-  .bot-card h2 {
-    font-size: 14px;
-  }
-
-  .bot-card p {
-    font-size: 12px;
-  }
-
-  .bot-card button {
-    padding: 4px 8px;
-    font-size: 12px;
-  }
+#your-bot-army h2 {
+  font-size: 24px;
+  color: #5f7b7b;
+  margin-bottom: 20px;
 }
