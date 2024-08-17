@@ -24,15 +24,15 @@ Bot Battlr is a React application that allows users to browse through a collecti
 
 To run this application, follow these steps:
 1. Clone the repository:
-   - git clone https://github.com/your-username/bot-collection-app.git
+   - git clone https://github.com/your-username/bot-battlr.git
 
 2. Install dependencies:
-  - cd bot-collection-app
-  - npm install
+   - cd bot-battlr
+   - npm install
 
 3. Start the backend server
-  - npm run server
-  - The server will listen on port 8001
+   - npm run server
+   - The server will listen on port 8001
 
 4. Start the frontend React app:
    - npm start 
@@ -41,10 +41,12 @@ Now you can access the app in your browser at http://localhost:3000.
 
  # App Structure
 
+  - **src/components/Header.js:** Contains the App header.
   - **src/components/BotCard.js:** Contains the UI for a single bot card.
   - **src/components/BotCollection.js:** Contains the main logic for managing the bot collection and your bot army.
-  - **src/components/YourBotArmy.js:** Contains the UI for displaying your bot army.
+  - **src/pages/YourBotArmy.js:** Contains the UI for displaying your bot army.
   - **src/App.js:** The main app component.
+  - **src/App.css:** The styling of the app's components.
 
   ## API Endpoints
   - GET http://localhost:8001/bots: Fetch the list of bots.
