@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Bot-Battlr/static/css/main.a441e9a5.css",
-    "main.js": "/Bot-Battlr/static/js/main.dfba3987.js",
-    "index.html": "/Bot-Battlr/index.html",
-    "main.a441e9a5.css.map": "/Bot-Battlr/static/css/main.a441e9a5.css.map",
-    "main.dfba3987.js.map": "/Bot-Battlr/static/js/main.dfba3987.js.map"
+    "main.css": "/Bot-Bottlr/static/css/main.a441e9a5.css",
+    "main.js": "/Bot-Bottlr/static/js/main.dfba3987.js",
+    "index.html": "/Bot-Bottlr/index.html",
+    "main.a441e9a5.css.map": "/Bot-Bottlr/static/css/main.a441e9a5.css.map",
+    "main.dfba3987.js.map": "/Bot-Bottlr/static/js/main.dfba3987.js.map"
   },
   "entrypoints": [
     "static/css/main.a441e9a5.css",
