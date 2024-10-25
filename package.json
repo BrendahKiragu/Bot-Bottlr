@@ -2,6 +2,7 @@
   "name": "bot-battlr",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://BrendahKiragu.github.io/Bot-Battlr",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -17,7 +18,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch db.json --port 8001"
+    "server": "json-server --watch db.json --port 8001",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.2.0",
     "json-server": "^1.0.0-beta.1"
   }
 }

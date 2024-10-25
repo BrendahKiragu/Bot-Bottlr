@@ -32,7 +32,7 @@ To run this application, follow these steps:
 
 3. Start the backend server
    - npm run server
-   - The server will listen on port 8001
+   - The server will listen on port 8001/bots
 
 4. Start the frontend React app:
    - npm start 
