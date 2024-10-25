@@ -9,7 +9,7 @@ Bot Battlr is a React application that allows users to browse through a collecti
 5. Libraries Used
 6. Acknowledgements
 
-
+See the live app here: https://brendahkiragu.github.io/Bot-Bottlr/
 # Features
 
  - Fetch bot data from a backend API.
